@@ -51,6 +51,11 @@ TEMPLATE(
 )
 }@
 
+<<<<<<< HEAD
+=======
+namespace rclcpp 
+{
+>>>>>>> 882b45f (Added new template for type adaptation. plus other fixes)
 
 
 @[for message in content.get_elements_of_type(Message)]@
@@ -62,9 +67,12 @@ ros_type = ros_type(package_name, interface_path, message)
 proto_type = protobuf_type(package_name, interface_path, message)
 }@
 
+<<<<<<< HEAD
 namespace rclcpp 
 {
 
+=======
+>>>>>>> 882b45f (Added new template for type adaptation. plus other fixes)
   template<>
   struct TypeAdapter<@(proto_type),  @(ros_type)>
   {
@@ -78,7 +86,11 @@ namespace rclcpp
      const custom_type & source,
      ros_message_type & destination)
     {
+<<<<<<< HEAD
      @("::".join(message.structure.namespaced_type.namespaces))::typesupport_protobuf_cpp::convert_to_ros(source, destination);
+=======
+     @("::".join(message.structure.namespaced_type.namespaces))::typesupport_protobuf_c::convert_to_ros(source, destination);
+>>>>>>> 882b45f (Added new template for type adaptation. plus other fixes)
     }
 
     static
@@ -87,6 +99,7 @@ namespace rclcpp
       const ros_message_type & source,
       custom_type & destination)
     {
+<<<<<<< HEAD
       @("::".join(message.structure.namespaced_type.namespaces))::typesupport_protobuf_cpp::convert_to_proto(source, destination);
     }
   };
@@ -110,3 +123,13 @@ using @(message.structure.namespaced_type.name)TypeAdapter = rclcpp::TypeAdapter
 @[end for]@
 
 
+=======
+      @("::".join(message.structure.namespaced_type.namespaces))::typesupport_protobuf_c::convert_to_proto(source, destination);
+    }
+  };
+
+@[end for]@
+
+}
+
+>>>>>>> 882b45f (Added new template for type adaptation. plus other fixes)
