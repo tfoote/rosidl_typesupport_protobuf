@@ -53,4 +53,4 @@ void topic_callback(const std_msgs::msg::String & msg) const
 
 ```
 
-To understand more about the internal structure go to [DEEP STRUCTURE](DEEP_STRUCTURE.md) seccion.
+To understand more about the internal structure go to [DEEP STRUCTURE](DEEP_STRUCTURE.md) section.
