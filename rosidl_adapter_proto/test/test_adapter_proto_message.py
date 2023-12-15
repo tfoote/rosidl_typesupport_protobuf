@@ -53,6 +53,26 @@ def get_member_name(message_idl_file):
     return member.name
 
 
+def test_message_proto_generated_invalid_argument():
+    with pytest.raises(Exception):
+        generate_file_argument = IdlLocator(
+            pathlib.Path(__file__).parent,
+            pathlib.Path('msg') / 'empty_document.json')
+        rc = generate_proto(generate_file_argument.get_absolute_path())
+
+        assert rc is None
+
+
+def test_message_proto_generated_empty_file():
+    with pytest.raises(Exception):
+        generate_file_argument = IdlLocator(
+            pathlib.Path(__file__).parent,
+            pathlib.Path('msg') / 'test_rosidl_adapter__empty_args.json')
+        rc = generate_proto(generate_file_argument.get_absolute_path())
+
+        assert rc is None
+
+
 def test_message_proto_generated(message_idl_file):
     generate_file_argument = IdlLocator(
         pathlib.Path(__file__).parent,
