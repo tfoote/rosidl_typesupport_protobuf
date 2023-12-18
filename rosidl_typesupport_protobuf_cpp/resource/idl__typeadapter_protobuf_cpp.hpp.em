@@ -32,6 +32,7 @@ system_header_files = [
 header_files = [
     "rclcpp/type_adapter.hpp",
     ros_message_header(package_name, interface_path),
+    adapter_visibility_control_header(package_name),
     typesupport_message_header(package_name, interface_path),
     visibility_control_header(package_name),
     'rosidl_typesupport_protobuf/rosidl_generator_c_pkg_adapter.hpp',
