@@ -103,7 +103,7 @@ def ros_type_name(message):
 
 
 def ros_type(package_name, interface_path, message, namespace_delimiter):
-    ros_type_ns = ros_type_namespace(package_name, interface_path)
+    ros_type_ns = ros_type_namespace(package_name, interface_path, namespace_delimiter)
     ros_type_nm = ros_type_name(message)
     return '::' + namespace_delimiter.join([ros_type_ns, ros_type_nm])
 
@@ -125,7 +125,7 @@ def ros_service_name(service):
 
 
 def ros_service_type(package_name, interface_path, service, namespace_delimiter):
-    ros_type_ns = ros_service_namespace(package_name, interface_path)
+    ros_type_ns = ros_service_namespace(package_name, interface_path, namespace_delimiter)
     ros_type_nm = ros_service_name(service)
     return '::' + namespace_delimiter.join([ros_type_ns, ros_type_nm])
 
