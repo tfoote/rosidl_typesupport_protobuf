@@ -40,7 +40,7 @@ header_files = [
     'rosidl_typesupport_protobuf/message_type_support.hpp',
     'rosidl_typesupport_protobuf/message_type_support_decl.hpp',
     'rosidl_typesupport_protobuf/proto_descriptor_helper.hpp',
-    visibility_control_header(package_name, 'rosidl_typesupport_protobuf_c'),
+    visibility_control_header(package_name, 'rosidl_typesupport_protobuf_cpp'),
     protobuf_message_header(package_name, interface_path)
 ]
 }@

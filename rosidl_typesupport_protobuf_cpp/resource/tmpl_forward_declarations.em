@@ -52,7 +52,7 @@ for member in message.structure.members:
 @[end if]@
 @[for type_ in types_to_declare]@
 @{
-ros_type = ros_type_from_namespaced_type(type_)
+ros_type = ros_type_from_namespaced_type(type_, '::')
 proto_type = protobuf_type_from_namespaced_type(type_)
 }@
 @[  for ns in type_.namespaces]@
