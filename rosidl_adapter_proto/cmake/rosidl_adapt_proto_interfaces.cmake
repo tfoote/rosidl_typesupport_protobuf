@@ -54,7 +54,7 @@ rosidl_write_generator_arguments(
   ADDITIONAL_FILES "${_proto_include_dirs}")
 
 execute_process(
-  COMMAND "${PYTHON_EXECUTABLE}" "${rosidl_adapter_proto_BIN}"
+  COMMAND /usr/bin/time -f %e\ %C -o /tmp/benchmark-proto -a "${PYTHON_EXECUTABLE}" "${rosidl_adapter_proto_BIN}"
   --generator-arguments-file "${generator_arguments_file}"
   --protoc-path "${Protobuf_PROTOC_EXECUTABLE}"
   ERROR_VARIABLE error
