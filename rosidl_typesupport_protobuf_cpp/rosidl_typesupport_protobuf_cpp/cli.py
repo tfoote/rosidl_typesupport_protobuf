@@ -67,7 +67,6 @@ class GenerateProtobufCppTypesupport(GenerateCommandExtension):
             templates_path=templates_path,
             output_path=output_path
         ) as path_to_arguments_file:
-            print('PATH: ', path_to_arguments_file)
             generated_files.extend(generate_cpp(path_to_arguments_file))
 
         return generated_files
