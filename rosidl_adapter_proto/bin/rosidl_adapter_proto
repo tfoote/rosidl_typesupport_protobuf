@@ -23,7 +23,7 @@ import sys
 import pathlib
 import os
 
-from rosidl_adapter_proto import convert_to_proto
+from rosidl_adapter_proto.cli import convert_to_proto
 
 
 def main(argv=sys.argv[1:]):
@@ -41,7 +41,7 @@ def main(argv=sys.argv[1:]):
 
     args = parser.parse_args(argv)
     try: 
-        translate_to_proto(args.generator_arguments_file, args.protoc_path)
+        convert_to_proto(args.generator_arguments_file, args.protoc_path)
     except RuntimeError:
         return 1
     
