@@ -15,9 +15,6 @@
 # limitations under the License.
 #
 # ================================= Apache 2.0 =================================
-
-from rosidl_cmake import generate_files
-
 from rosidl_pycommon import generate_files
 
 def get_template_mapping():

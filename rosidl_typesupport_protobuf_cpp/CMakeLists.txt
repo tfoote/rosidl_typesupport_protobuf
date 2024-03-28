@@ -96,6 +96,8 @@ if(BUILD_TESTING)
     target_link_libraries(test_wstring_conversion
     ${PROJECT_NAME})
   endif()
+  find_package(ament_cmake_pytest REQUIRED)
+  ament_add_pytest_test(test_rosidl_cli_ts_pb_cpp test/test_rosidl_cli_ts_pb_cpp.py)
 endif()
 
 ament_package(CONFIG_EXTRAS "cmake/rosidl_typesupport_protobuf_cpp-extras.cmake.in")
