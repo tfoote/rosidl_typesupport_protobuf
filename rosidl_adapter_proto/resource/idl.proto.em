@@ -18,7 +18,7 @@
 # ================================= Apache 2.0 =================================
 }@
 @{
-from rosidl_adapter_proto import PROTO_PACKAGE_POSTFIX
+from rosidl_adapter_proto import PROTO_PACKAGE_POSTFIX, ROS_VERSION
 }@
 // generated from rosidl_adapter_proto/resource/idl.proto.em
 // with input from @(package_name):@(interface_path)
@@ -26,7 +26,7 @@ from rosidl_adapter_proto import PROTO_PACKAGE_POSTFIX
 
 syntax = "proto3";
 
-package @('.'.join([package_name] + list(interface_path.parts)[:-1] + [PROTO_PACKAGE_POSTFIX]));
+package @('.'.join([package_name] + list(interface_path.parts)[:-1] + [PROTO_PACKAGE_POSTFIX, ROS_VERSION]));
 
 @{
 #######################################################################

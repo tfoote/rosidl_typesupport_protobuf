@@ -20,7 +20,7 @@
 @{
 import rosidl_parser.definition as rosidl
 
-from rosidl_adapter_proto import PROTO_PACKAGE_POSTFIX
+from rosidl_adapter_proto import PROTO_PACKAGE_POSTFIX, ROS_VERSION
 from rosidl_adapter_proto import MSG_TYPE_TO_PROTO
 from rosidl_adapter_proto import compute_proto_field_number
 
@@ -81,7 +81,7 @@ for member in message.structure.members:
     elif isinstance(idl_type, rosidl.AbstractWString):
         proto_type = "bytes"
     elif isinstance(idl_type, rosidl.NamespacedType):
-        proto_type = ".".join(idl_type.namespaces + [PROTO_PACKAGE_POSTFIX] + [idl_type.name])
+        proto_type = ".".join(idl_type.namespaces + [PROTO_PACKAGE_POSTFIX, ROS_VERSION] + [idl_type.name])
     elif isinstance(idl_type, rosidl.NamedType):
         proto_type = idl_type.name
 

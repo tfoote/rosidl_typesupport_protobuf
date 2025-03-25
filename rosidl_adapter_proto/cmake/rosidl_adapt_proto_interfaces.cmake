@@ -70,7 +70,8 @@ foreach(_abs_idl_file ${rosidl_generate_interfaces_ABS_IDL_FILES})
   get_filename_component(_parent_folder "${_abs_idl_file}" DIRECTORY)
   get_filename_component(_parent_folder "${_parent_folder}" NAME)
   get_filename_component(_idl_name "${_abs_idl_file}" NAME_WE)
-  list(APPEND rosidl_adapter_proto_GENERATED_CPP "${rosidl_adapter_proto_OUTPUT_DIR}/${_parent_folder}/${_idl_name}.pb.cc")
+  string_camel_case_to_lower_case_underscore("${_idl_name}" _idl_name_lower)
+  list(APPEND rosidl_adapter_proto_GENERATED_CPP "${rosidl_adapter_proto_OUTPUT_DIR}/${_parent_folder}/${_idl_name_lower}.pb.cc")
 endforeach()
 
 # generate header to switch between export and import for a specific package

@@ -20,6 +20,7 @@ from rosidl_cmake import convert_camel_case_to_lower_case_underscore
 
 # A postfix for the protobuf package name / the c++ namespace
 PROTO_PACKAGE_POSTFIX = 'pb'
+ROS_VERSION = 'jazzy' # HACK
 
 _TYPE_SUPPORT_NAME = ''
 _NAMESPACE_DELIMETER = ''
@@ -80,7 +81,7 @@ def ros_message_functions_header_c_from_namespace(namespace, name):
 
 def protobuf_message_header(package_name, interface_path):
     include_parts = [package_name] + list(interface_path.parents[0].parts)
-    include_prefix = interface_path.stem
+    include_prefix = convert_camel_case_to_lower_case_underscore(interface_path.stem)
 
     return '/'.join(include_parts + [include_prefix + '.pb.h'])
 
@@ -139,14 +140,14 @@ def ros_service_type(package_name, interface_path, service):
 
 def protobuf_type(package_name, interface_path, message):
     namespace = '::'.join([package_name] + list(interface_path.parents[0].parts))
-    return '::' + '::'.join([namespace, PROTO_PACKAGE_POSTFIX, ros_type_name(message)])
+    return '::' + '::'.join([namespace, PROTO_PACKAGE_POSTFIX, ROS_VERSION, ros_type_name(message)])
 
 
 def protobuf_type_from_namespaced_type(namespaced_type):
     return '::' + '::'.join(namespaced_type.namespaces +
-                            [PROTO_PACKAGE_POSTFIX, namespaced_type.name])
+                            [PROTO_PACKAGE_POSTFIX, ROS_VERSION, namespaced_type.name])
 
 
 def protobuf_type_from_namespaced_type_c(namespaced_type):
     return '::' + '::'.join(namespaced_type.namespaces +
-                            [PROTO_PACKAGE_POSTFIX, namespaced_type.name])
+                            [PROTO_PACKAGE_POSTFIX, ROS_VERSION, namespaced_type.name])
